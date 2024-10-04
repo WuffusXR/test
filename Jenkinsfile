@@ -8,12 +8,17 @@ pipeline {
                 sh 'curl -LO https://git.ruff.co.il/tom/otomai/releases/download/v1.0.1/Otomai-web.zip'
             }
         }
-        stage('Unzip File') {
+        stage('Create web game directory') {
             steps {
-                sh 'unzip Otomai-web.zip'
+                sh 'mkdir ./game-data'
             }
         }
-        stage('Checkout SCM'){
+        stage('Unzip File') {
+            steps {
+                sh 'unzip -d game-data/ Otomai-web.zip'
+            }
+        }
+        stage('Checkout SCM') {
             steps {
                 git branch: 'main', url: 'https://git.ruff.co.il/tom/otomai-docker.git'
             }
