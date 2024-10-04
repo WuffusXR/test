@@ -1,2 +1,1 @@
-# otomai-docker
-#Harucon Easter-egg game - dockerized#
+# Harucon Easter-egg game - dockerized
