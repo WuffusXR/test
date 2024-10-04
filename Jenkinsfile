@@ -2,6 +2,15 @@ pipeline {
     agent {
         label 'docker'
     }
+    stage("clean workspace") {
+        steps {
+            script {
+                sh "ls"
+                deleteDir()
+                sh "ls"
+            }
+        }
+    }
     stages {
         stage('Checkout SCM') {
             steps {
