@@ -1,4 +1,4 @@
 FROM httpd:alpine
 WORKDIR /var/www/html
-COPY ../game-data/ .
+COPY ./game-data/ .
 CMD ["httpd", "-D", "DAEMON"]

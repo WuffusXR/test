@@ -37,9 +37,14 @@ pipeline {
                 sh 'mkdir otomai-docker'
             }
         }
-        stage('Copy Dockerfile') {
+        stage('Move Dockerfile') {
             steps {
-                sh "cp ./Dockerfile ./otomai-docker/Dockerfile"
+                sh "mv ./Dockerfile ./otomai-docker/Dockerfile"
+            }
+        }
+        stage('Move game data') {
+            steps {
+                sh "mv ./game-data ./otomai-docker/game-data"
             }
         }
         stage('Build Docker Image') {
