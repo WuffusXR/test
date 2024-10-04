@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Checkout SCM'){
             steps {
-                git url: 'https://git.ruff.co.il/tom/otomai-docker.git'
+                git branch: 'main', url: 'https://git.ruff.co.il/tom/otomai-docker.git'
             }
         }
         stage('Build Docker Image') {
