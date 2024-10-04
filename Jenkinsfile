@@ -52,8 +52,8 @@ pipeline {
                 dir('otomai-docker') {
                     script {
                         // Define image name and registry details
-                        def imageNameId = "git.ruff.co.il/tom/otomai-docker:${env.BUILD_ID}"
-                        def imageNameLatest = "git.ruff.co.il/tom/otomai-docker:latest"
+                        def imageNameId = "git.ruff.co.il/tom/otomai-web:${env.BUILD_ID}"
+                        def imageNameLatest = "git.ruff.co.il/tom/otomai-web:latest"
                         def registryCredentialsId = 'a9635f55-73fb-4fdb-9f0a-19bc48033164'
 
                         // Login to the Docker registry with credentials
