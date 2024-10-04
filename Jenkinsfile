@@ -33,7 +33,9 @@ pipeline {
             }
         }
         stage('Copy Dockerfile') {
-            sh "cp ./Dockerfile ./otomai-docker/Dockerfile"
+            steps {
+                sh "cp ./Dockerfile ./otomai-docker/Dockerfile"
+            }
         }
         stage('Build Docker Image') {
             steps {
