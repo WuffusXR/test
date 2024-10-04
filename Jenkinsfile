@@ -1,5 +1,7 @@
 pipeline {
-    agent label docker
+    agent {
+        label 'docker'
+    }
     stages {
         stage('Download Latest release') {
             steps {
