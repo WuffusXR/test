@@ -1,4 +1,4 @@
 FROM httpd:alpine
 WORKDIR /var/www/html
-COPY /jenkins/otomai-web/ .
+COPY ./Otomai-web/ .
 CMD ["httpd", "-D", "DAEMON"]

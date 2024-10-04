@@ -5,12 +5,12 @@ pipeline {
     stages {
         stage('Download Latest release') {
             steps {
-                sh 'wget -O latest.zip https://objects.githubusercontent.com/github-production-release-asset-2e65be/864431154/d6f9dd9b-7d0d-4721-aa57-109d70e8a356?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=releaseassetproduction%2F20241004%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20241004T153841Z&X-Amz-Expires=300&X-Amz-Signature=86575f6cfc7e6166f1a7fa92232f451a68aacae8a239e8993541f192d3d51d85&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3DOtomai-web.zip&response-content-type=application%2Foctet-stream'
+                sh 'curl -LO https://github.com/dvtzr/otomai/releases/latest/download/Otomai-web.zip'
             }
         }
         stage('Unzip File') {
             steps {
-                sh 'unzip latest.zip'
+                sh 'unzip Otomai-web.zip'
             }
         }
         stage('Checkout SCM'){
