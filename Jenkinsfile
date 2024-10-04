@@ -32,6 +32,11 @@ pipeline {
                 sh 'unzip -d game-data/ Otomai-web.zip'
             }
         }
+        stage('Make directory') {
+            steps {
+                sh 'mkdir otomai-docker'
+            }
+        }
         stage('Copy Dockerfile') {
             steps {
                 sh "cp ./Dockerfile ./otomai-docker/Dockerfile"
