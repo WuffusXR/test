@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Download Latest release') {
             steps {
-                sh 'curl -LO https://github.com/dvtzr/otomai/releases/latest/download/Otomai-web.zip'
+                sh 'curl -LO https://git.ruff.co.il/tom/otomai/releases/download/v1.0.1/Otomai-web.zip'
             }
         }
         stage('Unzip File') {
