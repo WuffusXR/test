@@ -3,7 +3,7 @@ pipeline {
         label 'docker'
     }
     stages {
-        stage("clean workspace") {
+        stage("Clean workspace") {
             steps {
                 script {
                     sh "ls"
@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Download Latest release') {
             steps {
-                sh 'curl -LO https://git.ruff.co.il/tom/otomai/releases/download/v1.0.1/Otomai-web.zip'
+                sh 'curl -LO https://github.com/dvtzr/otomai/releases/latest/download/Otomai-web.zip'
             }
         }
         stage('Create web game directory') {
@@ -34,7 +34,7 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                dir('otomai-docker') {
+                dir('./') {
                     script {
                         // Define image name and registry details
                         def imageNameId = "git.ruff.co.il/tom/otomai-docker:${env.BUILD_ID}"
