@@ -2,16 +2,16 @@ pipeline {
     agent {
         label 'docker'
     }
-    stage("clean workspace") {
-        steps {
-            script {
-                sh "ls"
-                deleteDir()
-                sh "ls"
+    stages {
+        stage("clean workspace") {
+            steps {
+                script {
+                    sh "ls"
+                    deleteDir()
+                    sh "ls"
+                }
             }
         }
-    }
-    stages {
         stage('Checkout SCM') {
             steps {
                 git branch: 'main', url: 'https://git.ruff.co.il/tom/otomai-docker.git'
