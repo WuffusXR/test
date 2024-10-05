@@ -37,7 +37,7 @@ pipeline {
                 dir('./') {
                     script {
                         // Define image name and registry details
-                        def imageNameId = "git.ruff.co.il/tom/otomai-web:1.0.${env.BUILD_ID}"
+                        def imageNameId = "git.ruff.co.il/tom/otomai-web:1.${env.BUILD_ID}"
                         def imageNameLatest = "git.ruff.co.il/tom/otomai-web:latest"
                         def registryCredentialsId = 'a9635f55-73fb-4fdb-9f0a-19bc48033164'
 
