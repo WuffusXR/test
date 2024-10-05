@@ -32,24 +32,9 @@ pipeline {
                 sh 'unzip -d game-data/ Otomai-web.zip'
             }
         }
-        stage('Make directory') {
-            steps {
-                sh 'mkdir otomai-docker'
-            }
-        }
-        stage('Move Dockerfile') {
-            steps {
-                sh "mv ./Dockerfile ./otomai-docker/Dockerfile"
-            }
-        }
-        stage('Move game data') {
-            steps {
-                sh "mv ./game-data ./otomai-docker/game-data"
-            }
-        }
         stage('Build Docker Image') {
             steps {
-                dir('otomai-docker') {
+                dir('./') {
                     script {
                         // Define image name and registry details
                         def imageNameId = "git.ruff.co.il/tom/otomai-web:${env.BUILD_ID}"

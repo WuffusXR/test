@@ -1,4 +1,2 @@
-FROM httpd:alpine
-WORKDIR /var/www/html
-COPY ./game-data/ .
-CMD ["httpd", "-D", "DAEMON"]
+FROM httpd:latest
+COPY ./game-data/ /usr/local/apache2/htdocs
