@@ -57,12 +57,9 @@ pipeline {
         }
         stage('Clean Old Container') {
             steps {
-                try {
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     sh 'docker stop otomai'
-                    sh 'docker rm -rf otomai'
-                } catch (err) {
-                    // Ignore the error if the container doesn't exist
-                    echo "Container 'otomai' doesn't exist. Skipping."
+                    sh 'docker rm otomai'
                 }
             }
         }
