@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Download Latest release') {
             steps {
-                sh 'curl -LO https://github.com/dvtzr/otomai/releases/latest/download/Otomai-web.zip'
+                sh 'curl -LO https://git.ruff.co.il/dvtzr/otomai/releases/download/latest/Otomai-web.zip'
             }
         }
         stage('Create web game directory') {
