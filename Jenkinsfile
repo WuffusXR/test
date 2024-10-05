@@ -57,7 +57,7 @@ pipeline {
         }
         stage('Clean Old Container') {
             steps {
-                catchError(buildResult: 'SUCCESS',message: 'Container does\'nt exist on host, skipping...', stageResult: 'null ') {
+                catchError(buildResult: 'SUCCESS',message: 'Container does\'nt exist on host, skipping...', stageResult: 'ABORTED') {
                     sh 'docker stop otomai'
                     sh 'docker rm otomai'
                 }
