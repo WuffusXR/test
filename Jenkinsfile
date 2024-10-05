@@ -55,11 +55,15 @@ pipeline {
                 }
             }
         }
-        stage('Clean old container') {
+        stage('Clean Old Container') {
             steps {
-                // Shell command to stop and kill the named container
-                sh 'docker stop otomai'
-                sh 'docker rm -rf otomai'
+                try {
+                    sh 'docker stop otomai'
+                    sh 'docker rm -rf otomai'
+                } catch (err) {
+                    // Ignore the error if the container doesn't exist
+                    echo "Container 'otomai' doesn't exist. Skipping."
+                }
             }
         }
         stage('Run new container') {
