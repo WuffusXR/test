@@ -55,5 +55,28 @@ pipeline {
                 }
             }
         }
+        stage('Clean old container') {
+            steps {
+                // Shell command to stop and kill the named container
+                sh 'docker stop otomai'
+                sh 'docker rm -rf otomai'
+            }
+        }
+        stage('Run new container') {
+            steps {
+                script {
+                    // Define registry credentials and image name
+                    def registryCredentialsId = 'a9635f55-73fb-4fdb-9f0a-19bc48033164'
+                    def imageName = 'git.ruff.co.il/tom/otomai-web:latest'
+
+                    // Login to registry
+                    docker.withRegistry('https://git.ruff.co.il', registryCredentialsId) {
+
+                        // Run container
+                        docker.image(imageName).run('-p 10002:80 --name otomai')
+                    }
+                }
+            }
+        }
     }
 }
